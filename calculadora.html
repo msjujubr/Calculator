@@ -1,0 +1,199 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Avançada</title>
+
+  <style>
+    body {
+      /* background: linear-gradient(135deg, #1d2671, #c33764); */
+      background:
+        linear-gradient(rgba(14, 6, 59, 0.6), rgba(90, 84, 84, 0.6)),
+        url("/home/julia/Desktop/flowers.jpeg");
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculadora {
+      background: #dadce4;
+      padding: 20px;
+      border-radius: 15px;
+      width: 280px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    }
+
+    .display {
+      width: 100%;
+      height: 60px;
+      font-size: 26px;
+      text-align: right;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 15px;
+      background: #000;
+      color: rgb(7, 172, 7);
+    }
+
+    .botoes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      height: 55px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.1s, opacity 0.1s;
+    }
+
+    button:active {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+
+    .numero {
+      background: #2c3163;
+      color: #fff;
+    }
+
+    .operador {
+      background: #e69823;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .funcao {
+      background: #4a7897;
+      color: #fff;
+    }
+
+    .igual {
+      background: #108514;
+      color: #fff;
+      grid-column: span 2;
+    }
+
+    .limpar {
+      background: #b61004;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="calculadora">
+  <input type="text" id="display" class="display" disabled>
+
+  <div class="botoes">
+    <button class="funcao" data-acao="sqrt">√</button>
+    <button class="funcao" data-acao="percent">%</button>
+    <button class="limpar" data-acao="clear">C</button>
+    <button class="operador" data-valor="/">÷</button>
+
+    <button class="numero" data-valor="7">7</button>
+    <button class="numero" data-valor="8">8</button>
+    <button class="numero" data-valor="9">9</button>
+    <button class="operador" data-valor="*">×</button>
+
+    <button class="numero" data-valor="4">4</button>
+    <button class="numero" data-valor="5">5</button>
+    <button class="numero" data-valor="6">6</button>
+    <button class="operador" data-valor="-">−</button>
+
+    <button class="numero" data-valor="1">1</button>
+    <button class="numero" data-valor="2">2</button>
+    <button class="numero" data-valor="3">3</button>
+    <button class="operador" data-valor="+">+</button>
+
+    <button class="numero" data-valor="0">0</button>
+    <button class="numero" data-valor=".">.</button>
+    <button class="igual" data-acao="equals">=</button>
+  </div>
+</div>
+
+<script>
+  const display = document.getElementById("display");
+  let expressao = "";
+
+  function atualizarDisplay() {
+    display.value = expressao || "0";
+  }
+
+  function calcular() {
+    try {
+      expressao = eval(expressao).toString();
+    } catch {
+      expressao = "";
+      display.value = "Erro";
+      return;
+    }
+    atualizarDisplay();
+  }
+
+  // Clique nos botões
+  document.querySelectorAll("button").forEach(botao => {
+    botao.addEventListener("click", () => {
+      const valor = botao.dataset.valor;
+      const acao = botao.dataset.acao;
+
+      if (valor) {
+        expressao += valor;
+      }
+
+      if (acao === "clear") {
+        expressao = "";
+      }
+
+      if (acao === "equals") {
+        calcular();
+        return;
+      }
+
+      if (acao === "sqrt") {
+        expressao = Math.sqrt(Number(expressao)).toString();
+      }
+
+      if (acao === "percent") {
+        expressao = (Number(expressao) / 100).toString();
+      }
+
+      atualizarDisplay();
+    });
+  });
+
+  // Eventos de teclado
+  document.addEventListener("keydown", (e) => {
+    const teclasPermitidas = "0123456789+-*/.";
+
+    if (teclasPermitidas.includes(e.key)) {
+      expressao += e.key;
+    }
+
+    if (e.key === "Enter") {
+      calcular();
+      return;
+    }
+
+    if (e.key === "Backspace") {
+      expressao = expressao.slice(0, -1);
+    }
+
+    if (e.key === "Escape") {
+      expressao = "";
+    }
+
+    atualizarDisplay();
+  });
+
+  atualizarDisplay();
+</script>
+
+</body>
+</html>
