@@ -6,13 +6,7 @@
 
 **Estudo dirigido:** [📄 Programação Orientada a Eventos](https://github.com/msjujubr/Python_Calculator/blob/main/EstudoDirigido_LP.pdf)
 
-Este projeto consiste em uma calculadora interativa desenvolvida com **HTML, CSS e JavaScript**, cujo funcionamento é baseado no paradigma de **programação orientada a eventos**. O objetivo principal é demonstrar, na prática, como os conceitos fundamentais de eventos se relacionam em uma aplicação real, identificando:
-
-- **Produtores de eventos** (Event Producers)
-- **Event listeners** (Ouvintes de eventos)
-- **Event handlers** (Manipuladores de eventos)
-- O fluxo completo de comunicação entre esses elementos
-
+Este projeto consiste em uma calculadora interativa desenvolvida com **HTML, CSS e JavaScript**, cujo funcionamento é baseado no paradigma de **programação orientada a eventos**. O objetivo principal é demonstrar, na prática, como os conceitos fundamentais de eventos se relacionam em uma aplicação real.
 ## Funcionalidades
 
 - Operações matemáticas básicas (adição, subtração, multiplicação, divisão, porcentagem e raiz)
@@ -22,7 +16,7 @@ Este projeto consiste em uma calculadora interativa desenvolvida com **HTML, CSS
 - Interface responsiva e intuitiva
 
 
-## Arquitetura Baseada em Eventos
+## Arquitetura do ALgoritmo
 
 ### **Produtores de Eventos (Event Producers)**
 Na calculadora, os **produtores de eventos** são os elementos que geram interações detectáveis pelo sistema:
