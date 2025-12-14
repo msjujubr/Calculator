@@ -125,17 +125,24 @@
   function atualizarDisplay() {
     display.value = expressao || "0";
   }
-
+  
   function calcular() {
     try {
-      expressao = eval(expressao).toString();
-    } catch {
+      const resultado = eval(expressao);
+      if (!isFinite(resultado)) {
+        expressao = "";
+        display.value = "Erro";
+        return;
+      }
+      
+      expressao = resultado.toString();
+      atualizarDisplay();
+    } catch (e) {
       expressao = "";
       display.value = "Erro";
-      return;
     }
-    atualizarDisplay();
   }
+
 
   // Clique nos botões
   document.querySelectorAll("button").forEach(botao => {
