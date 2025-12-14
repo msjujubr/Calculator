@@ -61,7 +61,7 @@ document.addEventListener("keydown", (evento) => {
 - **Escopo:** Página inteira
 
 
-###**Event Handlers**
+### **Event Handlers**
 
 Os Event Handlers obtém as informações (`data-valor` e `data-acao`) do botão clicado ou da tecla pressionada, verifica o tipo de ação solicitada, executa-a e, por fim, atualiza o display 
 #### **Fluxo do Handler:**
