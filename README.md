@@ -28,7 +28,7 @@ Na calculadora, os **produtores de eventos** são os elementos que geram intera�
 #### **a) Botões da Interface (`<button>`):**
 Cada botão gera eventos de `click` quando pressionado. Inclusos:
   - Botões numéricos (0-9)
-  - Botões de operadores (+, -, ×, ÷)
+  - Botões de operadores (+, -, ×, ÷, %, √)
   - Botão de igual (=)
   - Botão de limpar (C)
 
