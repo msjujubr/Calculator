@@ -4,7 +4,7 @@
 
 **Disciplina**: Linguagens de Programação
 
-**Estudo dirigido:** [Programação Orientada a Eventos](https://github.com/msjujubr/Python_Calculator/blob/main/doc/EstudoDirigido_LP.pdf)
+**Estudo dirigido:** [Programação Orientada a Eventos](doc/EstudoDirigido_LP-.pdf)
 
 Este projeto consiste em uma calculadora interativa desenvolvida com **HTML, CSS e JavaScript**, cujo funcionamento é baseado no paradigma de **programação orientada a eventos**. O objetivo principal é demonstrar, na prática, como os conceitos fundamentais de eventos se relacionam em uma aplicação real.
 ## Funcionalidades
